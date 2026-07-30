@@ -1,19 +1,44 @@
 aid: linkett
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/linkett.png
 name: Linkett
-description: Linkett is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Linkett is a digital out-of-home (DOOH) analytics platform for digital signage and retail
+  displays. Its proprietary technology passively gathers audience data at the screen and reports real-time
+  campaign performance metrics such as impressions, dwell time, and engagement, giving advertising agencies
+  detailed client reporting and giving advertisers measurement they can tie back to return on ad spend.
+  Linkett is headquartered in Canada with offices in Toronto and California, and was surfaced through the
+  500 Global portfolio. As of this enrichment pass Linkett publishes no public developer portal, API
+  reference, or machine-readable API specification, and its website is served behind a bot/CAPTCHA
+  challenge that blocks automated retrieval.
 url: https://raw.githubusercontent.com/api-evangelist/linkett/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - 500-global
 x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier-reason: no-public-api-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
+- Advertising
+- Digital Signage
+- Digital Out Of Home
+- DOOH
+- Analytics
+- Audience Measurement
+- Retail Media
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -21,5 +46,16 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/linkett-domain-security.yml
+- type: LLMsTxt
+  url: llms/linkett-llms.txt
 - type: Website
   url: https://linkett.com
+- type: About
+  url: https://linkett.com/about/
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
