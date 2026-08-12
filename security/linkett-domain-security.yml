@@ -1,11 +1,11 @@
-generated: '2026-07-19'
+generated: '2026-08-12'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
 - host: linkett.com
   https: true
   tls_version: TLSv1.3
-  cert_expires: Aug 23 19:42:24 2026 GMT
+  cert_expires: Oct 22 18:45:10 2026 GMT
   hsts: false
 domains:
 - domain: linkett.com

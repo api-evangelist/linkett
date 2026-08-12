@@ -1,0 +1,65 @@
+generated: '2026-08-12'
+method: searched
+source: https://web.archive.org/web/20240615234529/https://linkett.com/pricing/
+docs: https://linkett.com/pricing/
+provenance_note: >-
+  Linkett publishes a public pricing page at https://linkett.com/pricing/, but the live host
+  answers every automated request with an HTTP 202 SiteGround captcha interstitial, so the
+  page could not be read directly. The tiers below were read verbatim from the most recent
+  Internet Archive capture of that same first-party URL (2024-06-15). Treat the figures as
+  last-verified 2024-06-15, not as confirmed-current pricing.
+captured: '2024-06-15'
+currency: USD
+billing_period: month
+plan_count: 3
+plans:
+- name: Standard Package
+  price: 25
+  currency: USD
+  billing_period: month
+  hardware_fee:
+    amount: 130
+    currency: USD
+    type: one-time
+    note: One-time hardware fee for the LINKETT sensor.
+  included:
+  - LINKETT sensor
+  - Traffic analytics
+  - Premium Support
+  api_access: false
+- name: Premium Package
+  price: 50
+  currency: USD
+  billing_period: month
+  hardware_fee:
+    amount: 130
+    currency: USD
+    type: one-time
+    note: One-time hardware fee for the LINKETT sensor.
+  included:
+  - LINKETT sensor
+  - Traffic analytics
+  - Demographics Data
+  - Premium Support
+  api_access: false
+- name: Enterprise Package
+  price: null
+  price_model: custom
+  currency: USD
+  billing_period: null
+  cta: Contact Us
+  included:
+  - Volume Discounts
+  - Custom Integrations
+  - 24/7 Support
+  api_access: unknown
+  note: >-
+    The only integration language Linkett publishes anywhere is "Custom Integrations" on this
+    enterprise tier, behind a Contact Us form. No API, SDK, webhook or developer program is
+    named on the pricing page or anywhere else on the site.
+notes:
+- Pricing is per screen/sensor instance ("Instance 1" selector on the page).
+- No free tier and no self-serve trial is published; the entry point is "Order Now" at $25/mo
+  plus a one-time $130 hardware fee.
+- No API quota, call allowance, overage rate or rate limit is attached to any tier, because
+  Linkett publishes no API.

@@ -13,13 +13,17 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/linkett.png
 name: Linkett
 description: Linkett is a digital out-of-home (DOOH) analytics platform for digital signage and retail
-  displays. Its proprietary technology passively gathers audience data at the screen and reports real-time
-  campaign performance metrics such as impressions, dwell time, and engagement, giving advertising agencies
-  detailed client reporting and giving advertisers measurement they can tie back to return on ad spend.
-  Linkett is headquartered in Canada with offices in Toronto and California, and was surfaced through the
-  500 Global portfolio. As of this enrichment pass Linkett publishes no public developer portal, API
-  reference, or machine-readable API specification, and its website is served behind a bot/CAPTCHA
-  challenge that blocks automated retrieval.
+  displays. A proprietary WiFi sensor mounted at the screen passively gathers audience data from nearby
+  smartphones with no app required, and a hosted dashboard reports real-time campaign performance metrics
+  such as impressions, dwell time, frequency and conversion rate, alongside demographic and behavioural
+  insight, giving advertising agencies detailed client reporting and giving advertisers measurement they
+  can tie back to return on ad spend. Linkett is a WestonExpressions Inc. company with offices in Toronto,
+  Ontario and Mountain View, California, says it is used by 100+ digital out-of-home networks, and was
+  surfaced through the 500 Global portfolio. It sells self-serve at $25 and $50 per month plus a one-time
+  $130 hardware fee, with custom integrations offered only on a contact-sales enterprise tier. As of this
+  enrichment pass Linkett publishes no public developer portal, API reference, SDK, or machine-readable
+  API specification on any host it controls, and its marketing site is served behind a bot/CAPTCHA
+  challenge that blocks automated retrieval of every path.
 url: https://raw.githubusercontent.com/api-evangelist/linkett/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -29,7 +33,7 @@ x-tier: stub
 x-tier-reason: no-public-api-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-19'
+modified: '2026-08-12'
 tags:
 - Company
 - Advertising
@@ -54,8 +58,42 @@ common:
   url: https://linkett.com
 - type: About
   url: https://linkett.com/about/
+- type: Plans
+  url: plans/linkett-plans-pricing.yml
+- type: Pricing
+  url: https://linkett.com/pricing/
+- type: Blog
+  url: https://linkett.com/blog/
+- type: Support
+  url: https://linkett.com/contact/
+- type: Login
+  url: https://portal3.linkett.com/login
+- type: TermsOfService
+  url: https://linkett.com/terms-conditions/
+- type: PrivacyPolicy
+  url: https://linkett.com/privacy-policy/
 x-enrichment:
-  date: '2026-07-19'
-  status: backfilled
+  date: '2026-08-12'
+  status: minimal
+  artifacts_added: 2
   pass: local-v1
-  note: backfilled from .gitignore signal + verified work evidence
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Linkett sells a WiFi sensor and a hosted reporting dashboard as an end-user product only —
+    its real application host portal3.linkett.com is a Rails customer login that returns 404
+    for /openapi.json, /api, /graphql and every /.well-known path, and the marketing site's
+    full 300-URL archive history contains no developer, docs or API page at all.
+  evidence:
+  - url: https://portal3.linkett.com/login
+    status: 200
+  - url: https://portal3.linkett.com/openapi.json
+    status: 404
+  - url: https://portal3.linkett.com/graphql
+    status: 404
+  - url: https://sync3-1.linkett.com/.well-known/agent-card.json
+    status: 404
+  - url: https://linkett.com/robots.txt
+    status: 202
+  checked: '2026-08-12'

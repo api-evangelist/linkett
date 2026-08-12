@@ -1,0 +1,115 @@
+generated: '2026-08-12'
+method: probed
+source: live HTTP probes of every Linkett host discovered via DNS and certificate transparency
+note: >-
+  Every /.well-known/ path was probed on all three reachable Linkett hosts and every one
+  missed. linkett.com (the WordPress marketing site) answers EVERY path — including
+  /.well-known/* — with an HTTP 202 SiteGround captcha interstitial rather than a document,
+  so nothing there is retrievable by an automated client. The two real application hosts,
+  portal3.linkett.com and sync3-1.linkett.com (a Rails/Passenger customer dashboard), return
+  a clean 404 for every path. No WellKnown or SecurityTxt pointer is emitted in apis.yml
+  because no path returned a real document — this file records a verified ABSENCE, not a
+  presence.
+hosts:
+- host: linkett.com
+  role: marketing site (WordPress)
+  behavior: >-
+    HTTP 202 with a meta-refresh to /.well-known/sgcaptcha/ on every path. Not a document.
+  paths:
+  - path: /.well-known/security.txt
+    status: 202
+    content_type: text/html
+    result: miss
+    detail: captcha interstitial, not a document
+  - path: /.well-known/openid-configuration
+    status: 202
+    content_type: text/html
+    result: miss
+    detail: captcha interstitial, not a document
+  - path: /.well-known/oauth-authorization-server
+    status: 202
+    content_type: text/html
+    result: miss
+    detail: captcha interstitial, not a document
+  - path: /.well-known/api-catalog
+    status: 202
+    content_type: text/html
+    result: miss
+    detail: captcha interstitial, not a document
+  - path: /.well-known/ai-plugin.json
+    status: 202
+    content_type: text/html
+    result: miss
+    detail: captcha interstitial, not a document
+- host: portal3.linkett.com
+  role: customer dashboard (Ruby on Rails / Phusion Passenger, nginx)
+  behavior: reachable and serving; Rails default 404 page for unknown routes
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    result: miss
+  - path: /.well-known/openid-configuration
+    status: 404
+    result: miss
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    result: miss
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    result: miss
+  - path: /.well-known/api-catalog
+    status: 404
+    result: miss
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    result: miss
+  - path: /.well-known/agent-card.json
+    status: 404
+    result: miss
+  - path: /.well-known/agent.json
+    status: 404
+    result: miss
+  - path: /robots.txt
+    status: 200
+    result: hit
+    detail: >-
+      Rails default robots.txt with every rule commented out; carries no Sitemap or
+      developer signal. Recorded for completeness — not a .well-known document.
+- host: sync3-1.linkett.com
+  role: second dashboard instance (same Rails application, New Relic instrumented)
+  behavior: reachable and serving; Rails default 404 page for unknown routes
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    result: miss
+  - path: /.well-known/openid-configuration
+    status: 404
+    result: miss
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    result: miss
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    result: miss
+  - path: /.well-known/api-catalog
+    status: 404
+    result: miss
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    result: miss
+  - path: /.well-known/agent-card.json
+    status: 404
+    result: miss
+  - path: /.well-known/agent.json
+    status: 404
+    result: miss
+summary:
+  hosts_probed: 3
+  paths_probed: 23
+  documents_found: 0
+  security_txt: false
+  openid_configuration: false
+  oauth_authorization_server: false
+  api_catalog: false
+  ai_plugin: false
+  agent_card: false
