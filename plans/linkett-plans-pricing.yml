@@ -63,3 +63,29 @@ notes:
   plus a one-time $130 hardware fee.
 - No API quota, call allowance, overage rate or rate limit is attached to any tier, because
   Linkett publishes no API.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  - subscription
+  units: []
+  plans:
+  - name: Standard Package
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Premium Package
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Enterprise Package
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
